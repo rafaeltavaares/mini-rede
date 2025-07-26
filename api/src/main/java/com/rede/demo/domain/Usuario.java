@@ -1,31 +1,15 @@
-<<<<<<< HEAD
-package mini.socialmidia.mini.domain;
 
-
-=======
 package com.rede.demo.domain;
 
 
 import com.rede.demo.dtos.Request.CreateUsuarioRequestDTO;
->>>>>>> 9cb1ee8 (build: first look of the system, all essentials classes created)
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
-<<<<<<< HEAD
-
-@Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-=======
 import java.util.Optional;
-
 @Entity
->>>>>>> 9cb1ee8 (build: first look of the system, all essentials classes created)
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,17 +21,9 @@ public class Usuario {
     private String telefone;
 
     @OneToMany(mappedBy = "usuario")
-<<<<<<< HEAD
     private List<Postagem> postagens;
 
     @OneToMany(mappedBy = "usuario")
-    private List<Amizades> solicitacoesEnviadas;
-
-    @OneToMany(mappedBy = "amigo")
-    private List<Amizades> solicitacoesRecebidas;
-
-    private LocalDateTime criado_em;
-=======
     private List<Amizade> solicitacoesEnviadas;
 
     @OneToMany(mappedBy = "amigo")
@@ -152,5 +128,4 @@ public class Usuario {
     public void setCriado_em(LocalDateTime criado_em) {
         this.criado_em = criado_em;
     }
->>>>>>> 9cb1ee8 (build: first look of the system, all essentials classes created)
 }

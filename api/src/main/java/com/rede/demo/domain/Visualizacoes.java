@@ -1,5 +1,7 @@
 package mini.socialmidia.mini.domain;
 
+import com.rede.demo.domain.Postagem;
+import com.rede.demo.domain.Usuario;
 import jakarta.persistence.*;
 import lombok.*;
 

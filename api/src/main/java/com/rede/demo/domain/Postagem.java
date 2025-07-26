@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-package mini.socialmidia.mini.domain;
-
-
-import jakarta.persistence.*;
-import lombok.*;
-import mini.socialmidia.mini.domain.Flags.Categoria;
-import mini.socialmidia.mini.domain.Flags.Privacidade;
-
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-@Getter
-@Setter
-
-public class Postagem {
-
-    @Id
-    private Long id;
-=======
 package com.rede.demo.domain;
 
 
@@ -37,7 +16,6 @@ public class Postagem {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
->>>>>>> 9cb1ee8 (build: first look of the system, all essentials classes created)
 
     private String conteudo;
 
@@ -52,10 +30,6 @@ public class Postagem {
     @Enumerated(EnumType.STRING)
     private Privacidade privacidade;
 
-<<<<<<< HEAD
-
-
-=======
     private LocalDateTime criado_em;
 
 
@@ -136,5 +110,4 @@ public class Postagem {
     public void setCriado_em(LocalDateTime criado_em) {
         this.criado_em = criado_em;
     }
->>>>>>> 9cb1ee8 (build: first look of the system, all essentials classes created)
 }
