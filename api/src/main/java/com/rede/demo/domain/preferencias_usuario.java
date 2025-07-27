@@ -1,8 +1,8 @@
-package mini.socialmidia.mini.domain;
 
+import com.rede.demo.domain.Flags.Categoria;
+import com.rede.demo.domain.Usuario;
 import jakarta.persistence.*;
 import lombok.*;
-import mini.socialmidia.mini.domain.Flags.Categoria;
 
 import java.util.List;
 
