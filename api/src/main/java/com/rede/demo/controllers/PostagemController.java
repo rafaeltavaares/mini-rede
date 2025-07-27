@@ -32,7 +32,7 @@ public class PostagemController {
         return new ResponseEntity<>(postagem, HttpStatus.CREATED);
     }
 
-    @GetMapping("/postagens")
+    @GetMapping()
     public ResponseEntity<List<ViewPostagemDTO>> listarPostagensDeTopo() {
         List<Postagem> raizes = repository.findByRespostaAoIsNullOrderByCriadoEmDesc(); // mudar depois
         List<ViewPostagemDTO> dtos = raizes.stream()
@@ -41,7 +41,7 @@ public class PostagemController {
         return ResponseEntity.ok(dtos);
     }
 
-    @GetMapping("/postagens/{id}/thread")
+    @GetMapping("/{id}/comentarios")
     public ResponseEntity<ViewPostagemCompletaDTO> verThread(@PathVariable Long id) {
         Postagem postagem = repository.findById(id).orElseThrow();
 
