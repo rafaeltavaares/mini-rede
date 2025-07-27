@@ -8,6 +8,7 @@ public record CreatePostagemRequestDTO(
     String titulo,
     UsuarioPostagemDTO usuario,
     Categoria categoria,
-    Privacidade Privacidade
+    Privacidade Privacidade,
+    Long respostaAo
 ) {
 }
