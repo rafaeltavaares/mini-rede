@@ -1,10 +1,11 @@
 package com.rede.demo.repositories;
 
 import com.rede.demo.domain.Engajamento;
+import com.rede.demo.domain.Visualizacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface VisualizacaoRepository extends JpaRepository<Engajamento,Long> {
+public interface VisualizacaoRepository extends JpaRepository<Visualizacao,Long> {
     
 }
