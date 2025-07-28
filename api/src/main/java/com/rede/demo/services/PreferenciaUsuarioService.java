@@ -2,6 +2,7 @@ package com.rede.demo.services;
 
 import com.rede.demo.domain.PreferenciaUsuario;
 import com.rede.demo.domain.Usuario;
+import com.rede.demo.dtos.CategoriaPopularDTO;
 import com.rede.demo.dtos.Request.CreateUsuarioPreferenciaDTO;
 import com.rede.demo.repositories.PreferenciaUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,9 @@ public class PreferenciaUsuarioService {
         data.preferencias().stream().forEach(preferencia -> repository.save(new PreferenciaUsuario(usuario,preferencia.score(),preferencia.categoria())));
     }
 
-    //public PreferenciaUsuario findMostFamousTopic(){}
+    public List<CategoriaPopularDTO> findMostFamousTopic(){
+        return repository.findCategoriasPopulares();
+    }
 
 
 

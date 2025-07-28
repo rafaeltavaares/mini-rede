@@ -1,6 +1,7 @@
 package com.rede.demo.controllers;
 
 import com.rede.demo.domain.PreferenciaUsuario;
+import com.rede.demo.dtos.CategoriaPopularDTO;
 import com.rede.demo.dtos.Request.CreateUsuarioPreferenciaDTO;
 import com.rede.demo.services.PreferenciaUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,11 @@ public class PreferenciaController {
     public void createUsuarioPreferencias(@RequestBody CreateUsuarioPreferenciaDTO data){
       service.createUsuarioPreferencias(data);
     }
+
+    @GetMapping("/top")
+    public ResponseEntity<List<CategoriaPopularDTO>> findTopCategorias(){
+        List<CategoriaPopularDTO> preferencias = service.findMostFamousTopic();
+        return new ResponseEntity<>(preferencias,HttpStatus.OK);
+    }
+
 }
