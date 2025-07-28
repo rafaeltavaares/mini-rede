@@ -19,8 +19,8 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository repository;
 
-    public Optional<Usuario> ExistUsuarioByUsername(String username){
-        return repository.findByUsername(username);
+    public Optional<Usuario> ExistUsuarioById(Long id){
+        return repository.findById(id);
     }
 
     public List<UsuarioResponseDTO> findAll(){

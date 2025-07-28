@@ -23,6 +23,10 @@ public class PostagemService {
     private UsuarioRepository usuarioRepository;
 
 
+    public Optional<Postagem> findPostagemById(Long id){
+        return repository.findById(id);
+    }
+
 
     public ViewPostagemCompletaDTO montarThread(Postagem raiz) {
 
