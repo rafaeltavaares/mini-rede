@@ -4,6 +4,7 @@ import com.rede.demo.domain.PreferenciaUsuario;
 import com.rede.demo.dtos.CategoriaPopularDTO;
 import com.rede.demo.dtos.Request.CreateUsuarioPreferenciaDTO;
 import com.rede.demo.dtos.Request.UpdateUsuarioPreferenciaDTO;
+import com.rede.demo.dtos.UsuarioCategoriaScore;
 import com.rede.demo.services.PreferenciaUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,7 +40,11 @@ public class PreferenciaController {
     @PutMapping("/update")
     public void UpdateUserPreferences(@RequestBody UpdateUsuarioPreferenciaDTO data){
         service.updateUsuarioPreferencias(data);
-
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<List<UsuarioCategoriaScore>> findUserTopCategorias(@PathVariable Long id){
+        List<UsuarioCategoriaScore> preferencias = service.highestsPreferenciaScoreToUser(id);
+        return new ResponseEntity<>(preferencias,HttpStatus.OK);
+    }
 }

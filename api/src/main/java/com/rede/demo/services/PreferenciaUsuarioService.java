@@ -6,6 +6,7 @@ import com.rede.demo.dtos.CategoriaPopularDTO;
 import com.rede.demo.dtos.Request.CategoriaScoreDTO;
 import com.rede.demo.dtos.Request.CreateUsuarioPreferenciaDTO;
 import com.rede.demo.dtos.Request.UpdateUsuarioPreferenciaDTO;
+import com.rede.demo.dtos.UsuarioCategoriaScore;
 import com.rede.demo.repositories.PreferenciaUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,7 +49,10 @@ public class PreferenciaUsuarioService {
         repository.saveAll(preferencesList); // Salva as alterações no banco
 
     }
-    //public PreferenciaUsuario highestPreferenciaScoreToUser(){}
+    public List<UsuarioCategoriaScore> highestsPreferenciaScoreToUser(Long usuarioId){
+        Usuario usuario = usuarioSerivce.ExistUsuarioById(usuarioId).orElseThrow();
+        return repository.findUsuarioCategoriasPopulares(usuario);
+    }
 
     //public PreferenciaUsuario
 }

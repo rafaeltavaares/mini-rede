@@ -4,6 +4,7 @@ import com.rede.demo.domain.Engajamento;
 import com.rede.demo.domain.PreferenciaUsuario;
 import com.rede.demo.domain.Usuario;
 import com.rede.demo.dtos.CategoriaPopularDTO;
+import com.rede.demo.dtos.UsuarioCategoriaScore;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -21,6 +22,15 @@ public interface PreferenciaUsuarioRepository extends JpaRepository<PreferenciaU
     ORDER BY COUNT(p.usuario) DESC
     """)
     List<CategoriaPopularDTO> findCategoriasPopulares();
+
+    @Query("""
+    SELECT new com.rede.demo.dtos.UsuarioCategoriaScore(p.categoria, p.score)
+    FROM PreferenciaUsuario p
+    WHERE p.score > 0.6
+    GROUP BY p.categoria
+    ORDER BY p.score DESC
+    """)
+    List<UsuarioCategoriaScore> findUsuarioCategoriasPopulares(Usuario usuario);
 
     List<PreferenciaUsuario> findByUsuario(Usuario usuario);
 }
