@@ -3,6 +3,7 @@ package com.rede.demo.controllers;
 import com.rede.demo.domain.PreferenciaUsuario;
 import com.rede.demo.dtos.CategoriaPopularDTO;
 import com.rede.demo.dtos.Request.CreateUsuarioPreferenciaDTO;
+import com.rede.demo.dtos.Request.UpdateUsuarioPreferenciaDTO;
 import com.rede.demo.services.PreferenciaUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,12 @@ public class PreferenciaController {
     public ResponseEntity<List<CategoriaPopularDTO>> findTopCategorias(){
         List<CategoriaPopularDTO> preferencias = service.findMostFamousTopic();
         return new ResponseEntity<>(preferencias,HttpStatus.OK);
+    }
+
+    @PutMapping("/update")
+    public void UpdateUserPreferences(@RequestBody UpdateUsuarioPreferenciaDTO data){
+        service.updateUsuarioPreferencias(data);
+
     }
 
 }

@@ -2,6 +2,7 @@ package com.rede.demo.repositories;
 
 import com.rede.demo.domain.Engajamento;
 import com.rede.demo.domain.PreferenciaUsuario;
+import com.rede.demo.domain.Usuario;
 import com.rede.demo.dtos.CategoriaPopularDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,4 +21,6 @@ public interface PreferenciaUsuarioRepository extends JpaRepository<PreferenciaU
     ORDER BY COUNT(p.usuario) DESC
     """)
     List<CategoriaPopularDTO> findCategoriasPopulares();
+
+    List<PreferenciaUsuario> findByUsuario(Usuario usuario);
 }
