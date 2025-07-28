@@ -2,10 +2,7 @@
 package com.rede.demo.domain;
 
 import com.rede.demo.domain.Flags.Taxonomia;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,9 +19,13 @@ public class Engajamento {
     @Id
     private Long id;
 
-    private Long user_id;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
-    private Long post_id;
+    @ManyToOne
+    @JoinColumn(name = "postagem_id")
+    private Postagem postagem;
 
     @Enumerated(EnumType.STRING)
     private Taxonomia taxonomia;
