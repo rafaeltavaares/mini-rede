@@ -54,5 +54,5 @@ public class PreferenciaUsuarioService {
         return repository.findUsuarioCategoriasPopulares(usuario);
     }
 
-    //public PreferenciaUsuario
+
 }

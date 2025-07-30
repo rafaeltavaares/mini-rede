@@ -1,4 +1,10 @@
 package com.rede.demo.dtos;
 
-public record UsuarioCategoriaScore() {
+import com.rede.demo.domain.Flags.Categoria;
+
+public record UsuarioCategoriaScore(
+        Categoria categoria,
+        Double score
+
+) {
 }
