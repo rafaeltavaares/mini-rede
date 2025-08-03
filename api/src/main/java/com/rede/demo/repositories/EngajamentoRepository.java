@@ -16,5 +16,8 @@ public interface EngajamentoRepository extends JpaRepository<Engajamento,Long> {
 
     Optional<Engajamento> findEngajamentoByUsuarioAndPostagemAndTaxonomia(Usuario usuario, Postagem postagem, Taxonomia taxonomia);
     List<Engajamento> findEngajamentoByUsuarioAndPostagem(Usuario usuario, Postagem postagem);
-    
+
+    List<Engajamento> findEngajamentoByUsuario(Usuario usuario);
+
+    List<Engajamento> findALlEngajamentoByPostagem(Postagem postagem);
 }
